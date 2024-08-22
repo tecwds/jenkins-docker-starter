@@ -10,7 +10,7 @@ services:
       - "50000:50000"
     volumes:
       # 容器卷
-      - jenkins-data:/var/jenkins_home
+      - jenkins_data:/var/jenkins_home
 
       # 用于容器内管理 docker
       - /var/run/docker.sock:/var/run/docker.sock
@@ -21,4 +21,7 @@ services:
 
 networks:
   jenkins:
+
+volumes:
+  jenkins_data:
 
