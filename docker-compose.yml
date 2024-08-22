@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  jenkins:
+    # jenkinsci/blueocean:latest 包含了 blue ocean 插件
+    image: jenkinsci/blueocean:latest
+    container_name: coding-jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      # 容器卷
+      - jenkins-data:/var/jenkins_home
+
+      # 用于容器内管理 docker
+      - /var/run/docker.sock:/var/run/docker.sock
+    privileged: true
+    user: root  
+    networks:
+      - jenkins 
+
+networks:
+  jenkins:
+
