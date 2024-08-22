@@ -2,8 +2,10 @@ version: '3'
 
 services:
   jenkins:
-    # jenkinsci/blueocean:latest 包含了 blue ocean 插件
-    image: jenkinsci/blueocean:latest
+    # jenkinsci/blueocean:latest 包含了 blue ocean 插件 --> 仅支持 linux/amd64
+    # image: jenkinsci/blueocean:latest
+    # 使用官方 lts 版本
+    image: jenkins/jenkins:lts-jdk17
     container_name: coding-jenkins
     ports:
       - "8080:8080"
